@@ -326,7 +326,7 @@ export default Vue.extend({
     },
 
     animate(root: HTMLDivElement, fettis: any[], decay: number) {
-      const totalTicks = 200;
+      const totalTicks = 50;
       let tick = 0;
 
       const self = this;
