@@ -151,6 +151,7 @@ type ComponentData = {
     x: number;
     y: number;
     color: string;
+    lastActionTimestamp: number;
   }[];
 
   lastClickCommit: number;
@@ -176,6 +177,18 @@ export default Vue.extend({
     await AppwriteService.initAccount();
 
     this.color = AppwriteServiceData.cursorColor || "#f02e65";
+
+    const _cleanupInterval = setInterval(() => {
+      const dateNow = Date.now();
+
+      this.remoteCursors = this.remoteCursors.filter((cursor) => {
+        if (Math.abs(dateNow - cursor.lastActionTimestamp) >= 10000) {
+          return false;
+        }
+
+        return true;
+      });
+    }, 5000);
 
     const movementCommitInterval = async () => {
       await AppwriteService.pushMouseAction("move", this.mouseX, this.mouseY);
@@ -221,6 +234,10 @@ export default Vue.extend({
     });
 
     AppwriteService.registerListener((payload) => {
+      if (!document.hasFocus()) {
+        return;
+      }
+
       if (payload.event !== "database.documents.update") {
         return;
       }
@@ -238,12 +255,14 @@ export default Vue.extend({
         if (userCursor) {
           userCursor.x = +pos[0];
           userCursor.y = +pos[1];
+          userCursor.lastActionTimestamp = Date.now();
         } else {
           this.remoteCursors.push({
             userId,
             x: +pos[0],
             y: +pos[1],
             color: payload.payload.color,
+            lastActionTimestamp: Date.now(),
           });
         }
       } else if (payload.payload.lastAction === "click") {
@@ -344,9 +363,9 @@ export default Vue.extend({
       color = "#f02e65",
       angle = 90,
       decay = 0.88,
-      spread = 120,
-      startVelocity = 21,
-      elementCount = 15,
+      spread = 50,
+      startVelocity = 15,
+      elementCount = 3,
     } = {}) {
       const element: HTMLDivElement = document.createElement("div");
       element.style.position = "absolute";
