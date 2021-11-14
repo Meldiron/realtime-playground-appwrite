@@ -35,7 +35,7 @@
 
     <!-- Design circle -->
     <svg
-      class="absolute right-0 top-0 transform scale-150"
+      class="absolute top-0 right-0 transform scale-150"
       width="377"
       height="567"
       viewBox="0 0 377 567"
@@ -64,7 +64,7 @@
 
     <!-- Design wave -->
     <svg
-      class="absolute left-0 bottom-0 transform scale-150"
+      class="absolute bottom-0 left-0 transform scale-150"
       width="310"
       height="194"
       viewBox="0 0 310 194"
@@ -94,7 +94,7 @@
     </svg>
 
     <!-- Connecting alert -->
-    <div class="container mx-auto flex justify-center">
+    <div class="container flex justify-center mx-auto">
       <div
         class="
           rounded-md
@@ -115,8 +115,8 @@
     <!-- Center container -->
     <div class="absolute inset-0 flex items-center justify-center">
       <div class="text-center">
-        <h1 class="font-bold text-gray-900 text-6xl">Realtime Playground</h1>
-        <h2 class="text-gray-600 text-4xl mt-6">
+        <h1 class="text-6xl font-bold text-gray-900">Realtime Playground</h1>
+        <h2 class="mt-6 text-4xl text-gray-600">
           made with
           <span class="font-bold text-[#f02e65]">Appwrite</span>
         </h2>
@@ -224,9 +224,9 @@ export default Vue.extend({
     });
 
     AppwriteService.registerListener((payload) => {
-      if (!document.hasFocus()) {
-        return;
-      }
+      // if (!document.hasFocus()) {
+      //   return;
+      // }
 
       if (payload.event !== "database.documents.update") {
         return;
