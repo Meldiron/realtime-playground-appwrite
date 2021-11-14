@@ -1,5 +1,7 @@
 # realtime-playground-appwrite
 
+![CleanShot 2021-11-14 at 14 43 34@2x](https://user-images.githubusercontent.com/19310830/141683723-16efb523-5575-4020-b289-9faae57b1b54.png)
+
 ## Build Setup
 
 ```bash
