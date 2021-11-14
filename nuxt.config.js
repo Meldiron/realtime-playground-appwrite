@@ -11,8 +11,47 @@ export default {
     meta: [
       { charset: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { hid: "description", name: "description", content: "" },
+      {
+        hid: "description",
+        name: "description",
+        content:
+          "Showcase of realtime cursor movement using Appwrite. Alone or with your friends, you can move the cursor on the website and lunch confetti by left-clicking.",
+      },
+      {
+        name: "og:description",
+        content:
+          "Showcase of realtime cursor movement using Appwrite. Alone or with your friends, you can move the cursor on the website and lunch confetti by left-clicking.",
+      },
+      {
+        name: "twitter:description",
+        content:
+          "Showcase of realtime cursor movement using Appwrite. Alone or with your friends, you can move the cursor on the website and lunch confetti by left-clicking.",
+      },
       { name: "format-detection", content: "telephone=no" },
+      {
+        name: "twitter:image",
+        content: "https://realtime-playground-appwrite.vercel.app/cover.png",
+      },
+      {
+        name: "og:image",
+        content: "https://realtime-playground-appwrite.vercel.app/cover.png",
+      },
+      { name: "og:title", content: "Realtime Playground | Appwrite" },
+      { name: "twitter:title", content: "Realtime Playground | Appwrite" },
+      { name: "twitter:card", content: "summary_large_image" },
+      {
+        name: "twitter:domain",
+        content: "realtime-playground-appwrite.vercel.app",
+      },
+      {
+        name: "twitter:url",
+        content: "https://realtime-playground-appwrite.vercel.app/",
+      },
+      {
+        name: "og:url",
+        content: "https://realtime-playground-appwrite.vercel.app/",
+      },
+      { name: "og:type", content: "website" },
     ],
     link: [{ rel: "icon", type: "image/png", href: "/favicon.png" }],
   },
