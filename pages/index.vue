@@ -118,17 +118,7 @@
         <h1 class="font-bold text-gray-900 text-6xl">Realtime Playground</h1>
         <h2 class="text-gray-600 text-4xl mt-6">
           made with
-          <a
-            href="https://appwrite.io/"
-            target="_blank"
-            class="
-              font-bold
-              filter
-              hover:brightness-90 hover:underline
-              text-[#f02e65]
-            "
-            >Appwrite</a
-          >
+          <span class="font-bold text-[#f02e65]">Appwrite</span>
         </h2>
       </div>
     </div>
